@@ -1,0 +1,73 @@
+<%= layout('layout/boilerplate') %>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 ">
+      <h1 class="text-center mb-4">Edit Campground</h1>
+
+      <form action="/campgrounds/<%= campground._id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+
+        <!-- Title -->
+        <div class="mb-3">
+          <label class="form-label" for="title">Name of Campground</label>
+          <input class="form-control validated-form" type="text" name="campground[title]" id="title" placeholder="Title" value="<%= campground.title %>" required>
+        </div>
+
+        <!-- Location -->
+        <div class="mb-3">
+          <label class="form-label" for="location">Where is it?</label>
+          <input class="form-control validated-form" type="text" name="campground[location]" id="location" placeholder="Location" value="<%= campground.location %>" required>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+          <label class="form-label" for="price">Campground Price</label>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input id="price" type="number" class="form-control validated-form" name="campground[price]" value="<%= campground.price %>" required>
+            <span class="input-group-text">a night</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label" for="description">Description</label>
+          <textarea class="form-control validated-form" id="description" name="campground[description]" rows="3" required><%= campground.description %></textarea>
+        </div>
+
+        <!-- File Upload -->
+        <div class="mb-4">
+          <label class="form-label" for="inputGroupFile02">Upload New Images</label>
+          <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile02" name="image" multiple>
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+          </div>
+        </div>
+
+        <!-- Existing Images -->
+        <div class="mb-4 d-flex flex-wrap gap-4">
+          <% campground.images.forEach(function (img, i) { %>
+            <div class="text-center">
+              <img src="<%= img.url %>" alt="campground image" class="img-thumbnail" style="max-width: 200px;">
+              <div class="form-check mt-2">
+                <input type="checkbox" id="image-<%= i %>" name="deleteimage[]" value="<%= img.filename %>" class="form-check-input">
+                <label class="form-check-label" for="image-<%= i %>">Delete</label>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+        <!-- Submit -->
+        <div class="mb-3">
+          <button class="btn btn-success w-100">Submit Changes</button>
+        </div>
+
+      </form>
+
+      <!-- Link to all campgrounds -->
+      <div class="text-center mt-3">
+        <a class="btn btn-primary" href="/campgrounds">Back to All Campgrounds</a>
+      </div>
+    </div>
+  </div>
+</div>

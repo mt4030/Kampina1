@@ -1,0 +1,40 @@
+<%layout('./layout/boilerplate')%>
+
+
+   
+
+
+
+<div class="container d-flex justify-content-center align-items-center  mt-5 mb-5">
+<div class="row">
+    <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+<div class="card shadow">
+  <img src="/images/back.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <div class="card-title">
+        <h5 class="mb-4 text-center"> Welcome Back</h5> 
+    </div>
+    <form action="/login" method="post" class="validate-form form-control" novalidate>
+  
+    <div class="mb-3">
+    <label class="form-label" for="username">Username</label>
+    <input class="form-control validated-form" type="text" name="username" placeholder="email@example.com" id="username" required>
+   <div id="validationServer03Feedback" class="invalid-feedback">
+     looks good
+    </div>
+</div>
+    
+   <div class="mb-3">
+    <label class="form-label" for="password">Password</label>
+    <input class="form-control validated-form" type="password" name="password" placeholder="password" id="password" required>
+   <div id="validationServer03Feedback" class="invalid-feedback">
+     looks good
+    </div>
+</div>
+
+<button class="btn btn-success w-100">Login</button>
+
+</form>
+  </div>
+</div></div></div>
+</div>
