@@ -26,15 +26,3 @@ module.exports = {
   cloudinary,
   storage
 };
-/**
- Production usage and integration:
-Use this setup to upload user images/files directly to Cloudinary cloud storage.
-
-Keeps sensitive API keys out of source code via environment variables.
-
-The storage is passed to multer middleware in your routes for file uploading.
-
-Cloudinary handles image hosting, transformations, optimization, and delivery.
-
-Organizing uploads into a folder helps with management in your Cloudinary dashboard.
- */

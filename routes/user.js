@@ -14,20 +14,13 @@ const passport = require('passport');
 
 // ---------------------- SIGN UP ROUTE ----------------------
 
-// Mount a route handler for GET and POST requests at "/register"
-// GET: Renders the registration form (e.g., a sign-up page).
-// POST: Processes the submitted registration form, creating a new user in the database.
+
 router.route('/register')
   .get(usercontroler.singform)                        // Shows signup form
   .post(chatcerror(usercontroler.singup))             // Handles signup logic, wrapped with catchAsync
 
 // ---------------------- LOGIN ROUTE ----------------------
 
-// Mount a route handler for GET and POST requests at "/login"
-// GET: Renders the login form.
-// POST: Uses Passport's local strategy to authenticate the user.
-//       If authentication fails, it redirects to /login and flashes an error.
-//       If successful, proceeds to `usercontroler.login` (e.g., redirects or flashes welcome).
 router.route('/login')
   .get(usercontroler.loginform)                       // Shows login form
   .post(

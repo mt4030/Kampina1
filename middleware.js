@@ -1,7 +1,7 @@
-const Campground = require('./models/campground'); // Campground mongoose model
-const Review = require('./models/review');         // Review mongoose model
-const { reviewSchema, campgroundSchema } = require('./schemas'); // Joi validation schemas
-const AppError = require('./util/AppError');       // Custom error class for app-specific errors
+const Campground = require('./models/campground'); 
+const Review = require('./models/review');        
+const { reviewSchema, campgroundSchema } = require('./schemas'); 
+const AppError = require('./util/AppError');    
 
 // Middleware to check if user is authenticated (logged in)
 module.exports.isloggedin = (req, res, next) => {
@@ -10,7 +10,7 @@ module.exports.isloggedin = (req, res, next) => {
     req.flash('error', 'you must log in to create campground'); // Flash message for user feedback
     return res.redirect('/login'); // Redirect to login page if not authenticated
   }
-  next(); // User logged in → proceed to next middleware or route handler
+  next();
 };
 
 // Middleware to check if current user is the author of the campground
@@ -24,7 +24,7 @@ module.exports.isAuthor = async (req, res, next) => {
     return res.redirect('/campground');         // Redirect to campgrounds list
   }
 
-  // Check if logged-in user is the author of the campground
+
   if (!campground.author.equals(req.user._id)) {
     req.flash('error', 'You do not have permission to do that'); // Flash permission error
     return res.redirect(`/campground/${id}`); // Redirect back to campground details
@@ -73,23 +73,3 @@ module.exports.validatereview = (req, res, next) => {
   next(); // Validation passed → proceed
 };
 
-/*
--------How and where these connect in your app / production use:
-isloggedin: Use as a gatekeeper middleware on routes that require login, e.g., creating/editing campgrounds or reviews. 
-Redirects to login page if user is not authenticated.
-
-isAuthor: Protects campground update/delete routes so only the campground's creator (author) can modify or delete it. 
-Prevents unauthorized changes.
-
-isreviewAuthor: Protects review delete routes so only the review's creator can delete their own review.
-
-validateCampground and validatereview: Ensure that data coming from user forms is valid before reaching the database.
- Prevents bad or malicious input by validating with Joi schemas.
- ------Typical route example integration:
-router.post('/campgrounds', isloggedin, validateCampground, campgroundsController.creatingnew);
-router.patch('/campgrounds/:id', isloggedin, isAuthor, validateCampground, campgroundsController.edit);
-router.post('/campgrounds/:id/reviews', isloggedin, validatereview, reviewController.create);
-router.delete('/campgrounds/:id/reviews/:reviewId', isloggedin, isreviewAuthor, reviewController.delete);
-
-
- */

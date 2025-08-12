@@ -17,23 +17,3 @@ const reviewSchema = new Schema({
 module.exports = mongoose.model('Review', reviewSchema);
 
 
-/**
- 🏭 Production Usage and Connections:
-This schema stores reviews made by users for campgrounds.
-
-Each review has:
-
-A text body explaining the user’s opinion
-
-A rating number representing their score
-
-An author reference linking to the User who wrote it
-
-This model is referenced in Campground documents to associate reviews with campgrounds.
-
-Supports population to get author details when rendering reviews.
-
-Used in review-related controllers (creating, deleting, updating reviews) and routes.
-
-Works alongside User and Campground models to build relationships between users, campgrounds, and reviews.
- */

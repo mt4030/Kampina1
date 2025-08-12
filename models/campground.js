@@ -60,25 +60,3 @@ campgroundSchema.post('findOneAndDelete', async function (doc) {
 module.exports = mongoose.model('Campground', campgroundSchema);
 
 
-
-/**
- * 
- Production Usage and Connections:
-This Campground schema defines the data shape for campgrounds saved in MongoDB.
-
-Campgrounds have:
-
-Multiple images
-
-GeoJSON location for map features
-
-User-generated content: reviews and author references
-
-The middleware guarantees data integrity by cleaning up reviews when a campground is deleted.
-
-This model is used in controllers (e.g., to create, update, fetch campgrounds) and referenced in routes.
-
-Supports population to fetch full review and author info when rendering pages.
-
-Works alongside Review and User models for full app functionality.
- */

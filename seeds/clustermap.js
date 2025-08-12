@@ -29,19 +29,3 @@ campgrounds.forEach(camp => {
 // Add the clustered markers layer to the map
 map.addLayer(markers);
 
-/**
-  Production Usage and Connections:
-This code is typically included on a page that lists campgrounds with a map (e.g., index or overview page).
-
-campgrounds must be passed from the backend (e.g., embedded as JSON in the page) or fetched client-side.
-
-Using Leaflet.markercluster helps performance and UX by grouping many markers visually.
-
-Markers display popups with campground info, enhancing user interaction.
-
-Coordinates must be stored as GeoJSON-like [lng, lat] in your campground data (from MongoDB in your app).
-
-The map is interactive, letting users zoom/pan and click markers for info.
-
-Works well for geospatial data visualization in production to improve discovery of campgrounds.
- */

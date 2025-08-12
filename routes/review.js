@@ -9,9 +9,7 @@ const chatcerror = require('../util/catchAsinc');
 
 // Import middlewares for authentication, authorization, and validation
 const { isloggedin, isreviewAuthor, validatereview } = require('../middleware'); 
-// - isloggedin: checks if user is logged in
-// - isreviewAuthor: checks if current user is the author of the review
-// - validatereview: validates the review data using Joi schema
+
 
 // Import the review controller functions
 const reviewControler = require('../controler/review'); 

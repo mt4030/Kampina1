@@ -92,24 +92,3 @@ seedDB().then(() => {
 });
 
 
-/**
- Production Use and Integration:
-This script is used during development or testing to populate your MongoDB database with sample campground data.
-
-It ensures a fresh start by deleting all previous data before seeding new data.
-
-Uses realistic geographic data from iran.json to generate meaningful locations and coordinates.
-
-Combines random descriptive words with places to create unique campground titles.
-
-Includes dummy images and descriptions which in production would be replaced or expanded.
-
-Assigns a hardcoded author ID; in production, real user IDs would be used or seeded accordingly.
-
-Coordinates are stored in GeoJSON format compatible with mapping libraries and geospatial queries.
-
-After running, your app can show a populated list of campgrounds with locations on maps.
-
-Run this script before starting the server or manually when you want to reset sample data.
-  
- */

@@ -70,26 +70,3 @@ module.exports.logout = (req, res, next) => {
 
 
 
-/**
- How and When These Are Used in Production:
-These are controller methods typically imported into your user routes file (e.g., routes/user.js):
-const userController = require('../controllers/user');
-
-router.get('/register', userController.singform);
-router.post('/register', userController.singup);
-router.get('/login', userController.loginform);
-router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), userController.login);
-router.get('/logout', userController.logout);
-
-User signs up → singform shows form → singup creates account and logs user in
-
-User logs in → loginform shows login form → passport middleware authenticates → login redirects with flash message
-
-User logs out → logout clears session and redirects
-
-Uses passport-local-mongoose for easy user registration and authentication with password hashing
-
-Uses connect-flash for showing success/error messages
-
-Uses sessions via express-session for maintaining login state
- */
