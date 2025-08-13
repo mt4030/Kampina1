@@ -137,9 +137,7 @@ unfortunately i couldn't deploy it as it required me to pay but i just built it 
 ## 👤 Author
 
 **[mohsen]**
-- Portfolio: 
-- GitHub: 
-- LinkedIn: 
+ 
 
 ## 🙏 Acknowledgments
 
